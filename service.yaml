@@ -2,6 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: gocd-service
+  namespace: prod-gocd-server
 spec:
   ports:
     - name: gocd-server
