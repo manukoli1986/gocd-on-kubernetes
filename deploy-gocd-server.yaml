@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: gocd
-        image: manukoli1986/gocd-server
+        image: manukoli1986/gocd-server:1
 #        image: gocd/gocd-server:v18.12.0
         readinessProbe:
           tcpSocket:
@@ -30,8 +30,8 @@ spec:
           periodSeconds: 40
         ports:
         - containerPort: 8153
-      volumes:
-      - name: test-volume
-        vsphereVolume:
-      	  volumePath: "[DatastoreName] volumes/myDisk"
-          fsType: ext4
+#      volumes:
+#      - name: test-volume
+#        vsphereVolume:
+#      	  volumePath: "[DatastoreName] volumes/myDisk"
+#          fsType: ext4
