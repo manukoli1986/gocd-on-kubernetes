@@ -1,0 +1,13 @@
+kind: Ingress
+apiVersion: v1
+metadata:
+  name: gocd-ingress-service
+  namespace: prod-gocd-server
+spec:
+  rules:
+  - http:
+      paths:
+        - path: /go
+          backend:
+            serviceName: gocd-service
+            servicePort: 8153
