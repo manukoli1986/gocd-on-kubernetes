@@ -3,10 +3,10 @@ apiVersion: v1
 metadata:
   name: gocd-server-pv
   labels:
-    type: amazonEBS
+    type: vsphere
 spec:
   capacity:
-    storage: 10Gi
+    storage: 1000Gi
   accessModes:
     - ReadWriteMany
   awsElasticBlockStore:
