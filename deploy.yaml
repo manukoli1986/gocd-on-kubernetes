@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
       - name: gocd
-        image: gocd/gocd-server:v18.12.0
+        image: manukoli1986/gocd-server
+#        image: gocd/gocd-server:v18.12.0
         readinessProbe:
           tcpSocket:
             port: 8153
@@ -29,24 +30,8 @@ spec:
           periodSeconds: 40
         ports:
         - containerPort: 8153
-
       volumes:
       - name: test-volume
         vsphereVolume:
       	  volumePath: "[DatastoreName] volumes/myDisk"
           fsType: ext4
-        
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: gocd-service
-  namespace: prod-gocd-server
-spec:
-  ports:
-    - name: gocd-server
-      port: 8153
-      nodePort: 30062
-  selector:
-    app: gocd-server
-  type: LoadBalancer
