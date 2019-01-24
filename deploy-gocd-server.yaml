@@ -4,6 +4,8 @@ kind: Deployment
 metadata:
   name: gocd-deployment
   namespace: prod-gocd-server
+  labels: 
+    app: gocd-server
 spec:
   selector:
     matchLabels:
