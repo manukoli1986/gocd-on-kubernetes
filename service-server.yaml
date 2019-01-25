@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: gocd-service
+  namespace: prod-gocd-server
+spec:
+  ports:
+    - name: gocd-server
+      port: 8154
+      targetPort: 8154
+      #nodePort: 30062
+  selector:
+    app: gocd-server
+    tier: server 
+  type: LoadBalancer

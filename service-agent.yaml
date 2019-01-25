@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: gocd-agent-service
+  namespace: prod-gocd-server
+spec:
+  ports:
+    - name: gocd-agent
+      port: 8154
+      nodePort: 8154
+#      targetPort: 8154
+  selector:
+    app: gocd-agent
+    tier: agent
