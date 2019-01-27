@@ -7,8 +7,9 @@ spec:
   ports:
     - name: gocd-agent
       port: 8154
-      nodePort: 8154
+      nodePort: 30094
 #      targetPort: 8154
   selector:
     app: gocd-agent
     tier: agent
+  type: NodePort

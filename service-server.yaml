@@ -8,8 +8,8 @@ spec:
     - name: gocd-server
       port: 8154
       targetPort: 8154
-      #nodePort: 30062
+      nodePort: 30062
   selector:
     app: gocd-server
     tier: server 
-  type: LoadBalancer
+ # type: LoadBalancer
