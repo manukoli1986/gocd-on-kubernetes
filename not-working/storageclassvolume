@@ -1,0 +1,7 @@
+kind: StorageClass
+apiVersion: v1
+metadata:
+  name: storage-class-volume
+provisioner: kubernetes.io/vsphere-volume
+parameters:
+    diskformat: thin

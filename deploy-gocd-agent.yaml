@@ -23,7 +23,7 @@ spec:
         image: gocd/gocd-agent-ubuntu-16.04:v18.12.0
         env: 
         - name: GO_SERVER_URL
-          value: "https://gocd-server:8154/go/"
+          value: "https://gocd-master-internal:8154/go/"
 #        env:
 #          GO_SERVER_URL=https://gocd-server:port/go
 #          GO_AGENT_SYSTEM_PROPERTIES=-Dgo.agent.status.api.bind.port=8158
