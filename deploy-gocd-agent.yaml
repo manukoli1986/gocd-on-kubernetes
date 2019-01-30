@@ -20,7 +20,8 @@ spec:
     spec:
       containers:
       - name: gocd-agent
-        image: gocd/gocd-agent-ubuntu-16.04:v18.12.0
+        image: manukoli1986/gocd-agent:v1
+#        image: gocd/gocd-agent-ubuntu-16.04:v18.12.0
         env: 
         - name: GO_SERVER_URL
           value: "https://gocd-master-internal:8154/go/"
