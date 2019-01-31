@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gocd-agent1-deployment
+  name: gocd-agent1
   namespace: prod-gocd-server
   labels: 
     app: gocd-agent
@@ -11,7 +11,7 @@ spec:
     matchLabels:
       app: gocd-agent
       tier: agent
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
