@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gocd-agent-deployment
+  name: gocd-agent2-deployment
   namespace: prod-gocd-server
   labels: 
     app: gocd-agent
