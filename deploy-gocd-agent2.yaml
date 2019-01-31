@@ -11,7 +11,7 @@ spec:
     matchLabels:
       app: gocd-agent
       tier: agent
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -19,7 +19,7 @@ spec:
         tier: agent
     spec:
       containers:
-      - name: gocd-agent-1
+      - name: gocd-agent
 #        image: manukoli1986/gocd-agent:v1
         image: gocd/gocd-agent-ubuntu-16.04:v18.12.0
         env: 
