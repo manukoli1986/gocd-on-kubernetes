@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gocd-server
+  name: gocd-server-deployment
   namespace: prod-gocd-server
   labels: 
     app: gocd-server
@@ -23,28 +23,26 @@ spec:
       - name: gocd-server
         image: manukoli1986/gocd-server:v1
 #        image: gocd/gocd-server:v18.12.0
-        volumeMounts:
-        - name: gocd-server-vol
-          mountPath: /godata
         readinessProbe:
-          tcpSocket:
-            port: 8154
-          initialDelaySeconds: 40
-          periodSeconds: 45
-        livenessProbe:
           tcpSocket:
             port: 8154
           initialDelaySeconds: 5
           periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: 8154
+          initialDelaySeconds: 30
+          periodSeconds: 40
         ports:
         - containerPort: 8153 
         - containerPort: 8154
 
-      volumes:
-      - name: gocd-server
-        persistentVolumeClaim:
-          claimName: gocd-server-pvc
-
+#      volumes:
+#      - name: test-volume
+#        vsphereVolume:
+#      	  volumePath: "[DatastoreName] volumes/myDisk"
+#          fsType: ext4
+#
 ---
 apiVersion: v1
 kind: Service

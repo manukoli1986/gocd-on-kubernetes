@@ -2,13 +2,56 @@ kind: PersistentVolume
 apiVersion: v1
 metadata:
   name: gocd-server-pv
+  uid: d08a1813-26fb-11e9-b84a-005056991aa0
+
   labels:
+    name: gocd-server-pv
     type: vsphere
 spec:
   capacity:
-    storage: 1000Gi
+    storage: 50Gi
   accessModes:
     - ReadWriteMany
-  awsElasticBlockStore:
-    volumeID: <your-volume-id>
+  persistentVolumeReclaimPolicy: Retain
+  vsphereVolume:
+    volumePath: "[datastore1] volumes/myDisk"
     fsType: ext4
+
+
+
+{
+  "kind": "PersistentVolume",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "gocd-server-artifacts-temp",
+    "selfLink": "/api/v1/persistentvolumes/gocd-server-artifacts-temp",
+    "uid": "d08a1813-26fb-11e9-b84a-005056991aa0",
+    "resourceVersion": "8858393",
+    "creationTimestamp": "2019-02-02T15:04:18Z",
+    "labels": {
+      "name": "gocd-server-artifacts-temp"
+    },
+    "annotations": {
+      "pv.kubernetes.io/bound-by-controller": "yes"
+    },
+    "finalizers": [
+      "kubernetes.io/pv-protection"
+    ]
+  },
+  "spec": {
+    "capacity": {
+      "storage": "2Gi"
+    },
+    "vsphereVolume": {
+      "volumePath": "[MITUCSBPaaS01_VSP56418_003] kubevols/gocd-server-artifacts-temp",
+      "fsType": "ext4"
+    },
+    "accessModes": [
+      "ReadWriteOnce"
+    ],
+    "claimRef": {
+      "kind": "PersistentVolumeClaim",
+      "namespace": "prod-gocd-server",
+      "name": "gocd-server-artifacts-temp-claim",
+      "uid": "a5b15e8c-26fa-11e9-b84a-005056991aa0",
+      "apiVersion":
