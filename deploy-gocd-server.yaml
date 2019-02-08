@@ -39,11 +39,24 @@ spec:
         volumeMounts:
         - name: gocd-server-godata
           mountPath: /godata
-
       volumes:
       - name: gocd-server-godata
         persistentVolumeClaim:
           claimName: gocd-server-pvc
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: gocd-server-pvc
+  namespace: prod-gocd-server
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+
 
 ---
 apiVersion: v1
