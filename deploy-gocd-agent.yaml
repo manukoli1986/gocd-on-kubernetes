@@ -26,14 +26,23 @@ spec:
         - name: GO_SERVER_URL
           value: "https://gocd-master-internal:8154/go/"
 
+        volumeMounts:
+        - name: gocd-agent-godata
+          mountPath: /godata
+      volumes:
+      - name: gocd-agent-godata
+        persistentVolumeClaim:
+          claimName: gocd-agent-pvc
 
-#        env:
-#          GO_SERVER_URL=https://gocd-server:port/go
-#          GO_AGENT_SYSTEM_PROPERTIES=-Dgo.agent.status.api.bind.port=8158
-#        ports:
-#        - containerPort: 8158
-#      volumes:
-#      - name: test-volume
-#        vsphereVolume:
-#      	  volumePath: "[DatastoreName] volumes/myDisk"
-#          fsType: ext4
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: gocd-agent-pvc
+  namespace: prod-gocd-server
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi
