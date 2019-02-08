@@ -7,7 +7,7 @@ spec:
   capacity:
     storage: 50Gi
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   vsphereVolume:
 #    volumePath: "[datastore1] volumes/myDisk"
@@ -24,7 +24,7 @@ spec:
   capacity:
     storage: 500Gi
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   vsphereVolume:
     volumePath: "[MITUCSBPaaS01_VSP56418_003] kubevols/gocd-agent-pv"
@@ -38,7 +38,7 @@ metadata:
   namespace: prod-gocd-server
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 50Gi
@@ -51,7 +51,7 @@ metadata:
   namespace: prod-gocd-server
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 100Gi
@@ -64,7 +64,7 @@ metadata:
   namespace: prod-gocd-server
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 100Gi
@@ -76,7 +76,7 @@ metadata:
   namespace: prod-gocd-server
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 100Gi
@@ -88,7 +88,7 @@ metadata:
   namespace: prod-gocd-server
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 100Gi
@@ -100,7 +100,7 @@ metadata:
   namespace: prod-gocd-server
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 100Gi
