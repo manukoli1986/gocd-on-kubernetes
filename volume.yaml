@@ -2,6 +2,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: gocd-server-pv
+  namespace: prod-gocd-server
 spec:
   capacity:
     storage: 50Gi
@@ -18,6 +19,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: gocd-agent-pv
+  namespace: prod-gocd-server
 spec:
   capacity:
     storage: 500Gi
@@ -33,6 +35,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: gocd-server-pvc
+  namespace: prod-gocd-server
 spec:
   accessModes:
     - ReadWriteMany
@@ -45,6 +48,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: gocd-agent-pvc
+  namespace: prod-gocd-server
 spec:
   accessModes:
     - ReadWriteMany
@@ -57,6 +61,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: gocd-agent-pvc1
+  namespace: prod-gocd-server
 spec:
   accessModes:
     - ReadWriteMany
@@ -68,6 +73,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: gocd-agent-pvc2
+  namespace: prod-gocd-server
 spec:
   accessModes:
     - ReadWriteMany
@@ -79,6 +85,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: gocd-agent-pvc3
+  namespace: prod-gocd-server
 spec:
   accessModes:
     - ReadWriteMany
@@ -90,6 +97,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: gocd-agent-pvc4
+  namespace: prod-gocd-server
 spec:
   accessModes:
     - ReadWriteMany
