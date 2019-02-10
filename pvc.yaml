@@ -8,13 +8,13 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 10Gi
+      storage: 40Gi
 
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: gocd-agent-pvc1
+  name: gocd-agent-pvc
   namespace: prod-gocd-server
 spec:
   accessModes:
