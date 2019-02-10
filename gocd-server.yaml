@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: gocd-server
-        image: manukoli1986/gocd-server:v1
+        image: 7174250670/gocd-server:v1
 #       image: gocd/gocd-server:v18.12.0
         readinessProbe:
           tcpSocket:
