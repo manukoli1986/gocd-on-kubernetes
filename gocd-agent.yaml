@@ -132,6 +132,10 @@ spec:
         env:
         - name: GO_SERVER_URL
           value: "https://gocd-master-internal:8154/go/"
+        - name: GO_HTTPS_PROXY
+          value: "https://appd-proxy.sys.comcast.net:3128"
+        - name: GO_HTTP_PROXY
+          value: "http://appd-proxy.sys.comcast.net:3128"
         volumeMounts:
         - name: gocd-agent3-godata
           mountPath: /godata
