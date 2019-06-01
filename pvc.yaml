@@ -2,62 +2,23 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: gocd-server-pvc
-  namespace: prod-gocd-server
+  namespace: gocd-server
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 40Gi
+      storage: 1Gi
 
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: gocd-agent-pvc
-  namespace: prod-gocd-server
+  namespace: gocd-server
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 100Gi
----
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: gocd-agent-pvc1
-  namespace: prod-gocd-server
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 100Gi
-
----
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: gocd-agent-pvc2
-  namespace: prod-gocd-server
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 100Gi
-
----
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: gocd-agent-pvc3
-  namespace: prod-gocd-server
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 100Gi
-
+      storage: 1Gi

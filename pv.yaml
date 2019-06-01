@@ -1,32 +1,37 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: gocd-server-pv
-  namespace: prod-gocd-server
+  name: gocd-pv
+  namespace: gocd-server
 spec:
   capacity:
-    storage: 50Gi
+    storage: 5Gi
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  vsphereVolume:
-#    volumePath: "[datastore1] volumes/myDisk"
-    volumePath: "[MITUCSBPaaS01_VSP56418_003] kubevols/gocd-server-pv"
-    fsType: ext4
+  hostPath:
+    path: "/c/Users/pv-provisiong"
 
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: gocd-agent-pv
-  namespace: prod-gocd-server
-spec:
-  capacity:
-    storage: 500Gi
-  accessModes:
-    - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Retain
-  vsphereVolume:
-    volumePath: "[MITUCSBPaaS01_VSP56418_003] kubevols/gocd-agent-pv"
-    fsType: ext4
+#  vsphereVolume:
+#    volumePath: "[MITUCSBPaaS01_VSP56418_003] kubevols/gocd-server-pv"
+#    fsType: ext4
+
+#---
+#apiVersion: v1
+#kind: PersistentVolume
+#metadata:
+#  name: gocd-agent-pv
+#  namespace: prod-gocd-server
+#spec:
+#  capacity:
+#    storage: 500Gi
+#  accessModes:
+#    - ReadWriteOnce
+#  persistentVolumeReclaimPolicy: Retain
+#  hostPath:
+#    path: "/c/Users/pv-provisiong"
+
+#  vsphereVolume:
+#    volumePath: "[MITUCSBPaaS01_VSP56418_003] kubevols/gocd-agent-pv"
+#    fsType: ext4
 

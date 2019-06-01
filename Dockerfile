@@ -1,6 +1,5 @@
 FROM gocd/gocd-server:v18.12.0
-#FROM alpine:latest
-MAINTAINER Pradeep
+MAINTAINER Mayank
 #WORKDIR /godata
 #COPY /gocd-master/godata/* /godata/
 ADD godata/plugins/bundled /godata/plugins/bundled

@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gocd-agent
-  namespace: prod-gocd-server
+  namespace: gocd-server
   labels: 
     app: gocd-agent
 spec:
@@ -20,8 +20,7 @@ spec:
     spec:
       containers:
       - name: gocd-agent
-        image: 7174250670/gocd-agent:latest
-#        image: gocd/gocd-agent-ubuntu-16.04:v18.12.0
+        image: gocd/gocd-agent-ubuntu-16.04:v18.12.0
         env: 
         - name: GO_SERVER_URL
           value: "https://gocd-master-internal:8154/go/"
@@ -39,7 +38,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gocd-agent1
-  namespace: prod-gocd-server
+  namespace: gocd-server
   labels:
     app: gocd-agent
 spec:
@@ -57,7 +56,7 @@ spec:
       containers:
       - name: gocd-agent-1
         image: 7174250670/gocd-agent:latest
-        #        image: gocd/gocd-agent-ubuntu-16.04:v18.12.0
+        image: gocd/gocd-agent-ubuntu-16.04:v18.12.0
         env:
         - name: GO_SERVER_URL
           value: "https://gocd-master-internal:8154/go/"
@@ -69,78 +68,3 @@ spec:
       - name: gocd-agent1-godata
         persistentVolumeClaim:
           claimName: gocd-agent-pvc1
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: gocd-agent2
-  namespace: prod-gocd-server
-  labels:
-    app: gocd-agent
-spec:
-  selector:
-    matchLabels:
-      app: gocd-agent
-      tier: agent
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: gocd-agent
-        tier: agent
-    spec:
-      containers:
-      - name: gocd-agent
-        image: 7174250670/gocd-agent:latest
-#        image: gocd/gocd-agent-ubuntu-16.04:v18.12.0
-        env:
-        - name: GO_SERVER_URL
-          value: "https://gocd-master-internal:8154/go/"
-
-        volumeMounts:
-        - name: gocd-agent2-godata
-          mountPath: /godata
-      volumes:
-      - name: gocd-agent2-godata
-        persistentVolumeClaim:
-          claimName: gocd-agent-pvc2
-
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: gocd-agent3
-  namespace: prod-gocd-server
-  labels:
-    app: gocd-agent
-spec:
-  selector:
-    matchLabels:
-      app: gocd-agent
-      tier: agent
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: gocd-agent
-        tier: agent
-    spec:
-      containers:
-      - name: gocd-agent
-        image: 7174250670/gocd-agent:latest
-        #        image: gocd/gocd-agent-ubuntu-16.04:v18.12.0
-        env:
-        - name: GO_SERVER_URL
-          value: "https://gocd-master-internal:8154/go/"
-        - name: GO_HTTPS_PROXY
-          value: "https://appd-proxy.sys.comcast.net:3128"
-        - name: GO_HTTP_PROXY
-          value: "http://appd-proxy.sys.comcast.net:3128"
-        volumeMounts:
-        - name: gocd-agent3-godata
-          mountPath: /godata
-      volumes:
-      - name: gocd-agent3-godata
-        persistentVolumeClaim:
-          claimName: gocd-agent-pvc3
-
